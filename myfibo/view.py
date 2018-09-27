@@ -14,6 +14,25 @@ def finalDisplay(finaltxt,n):
             }
     return HttpResponse(json.dumps(data), content_type='application/json')
 
+def calculatefibo(number)
+    count = 0
+    n1 = 0
+    n2 = 1 
+    mylist = []
+    mylist.append(n1)
+    mylist.append(n2)
+    
+    if number >= 2:
+       while count < number:
+           mylist.append(n1)
+           nextn = n1 + n2
+           n1 = n2
+           n2 = nextn
+           count += 1
+    return mylist
+
+
+
 def fibonacci(request):
     number    = request.GET.get('n','')
 
@@ -30,20 +49,7 @@ def fibonacci(request):
         if number == 1:
             return finalDisplay(list(0),number)
            
-        count = 0
-        n1 = 0
-        n2 = 1 
-        mylist = []
-        mylist.append(n1)
-        mylist.append(n2)
-        
-        if number >= 2:
-           while count < number:
-               mylist.append(n1)
-               nextn = n1 + n2
-               n1 = n2
-               n2 = nextn
-               count += 1
+        mylist = calculatefibo(number)
         
         return finalDisplay(mylist,number)
     execpt:
